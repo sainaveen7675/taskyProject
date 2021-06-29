@@ -27,7 +27,7 @@ const generateNewCard = (taskData) =>
           </div>
         </div>
       </div>
- `
+ `;
 
 
  // store the data into globalStore and not to delete the data when we refresh...
@@ -61,9 +61,8 @@ const saveChanges = () => {
         taskType: document.getElementById("tasktype").value,
         taskDescription: document.getElementById("taskdescription").value,
     };
-
     // HTML code
-  const createNewCard = newCard(taskData);
+  const createNewCard = generateNewCard(taskData);
 
   taskContainer.insertAdjacentHTML("beforeend", createNewCard);
   globalStore.push(taskData);
@@ -158,4 +157,11 @@ const saveEditChanges = (event) => {
      return task;
    });
    updateLocalStorage();
-};
+
+   
+   taskTitle.setAttribute("contenteditable", "false");
+   taskDescription.setAttribute("contenteditable", "false");
+   taskType.setAttribute("contenteditable", "false");
+   submitButton.setAttribute("onclick","saveEditChanges.apply(this, arguments)");
+   submitButton.innerHTML = "Open Task"
+}
