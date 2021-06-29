@@ -158,7 +158,7 @@ const saveEditChanges = (event) => {
    });
    updateLocalStorage();
 
-   
+   // to return back to "open task" after clicking on "save changes" and become content not editable.........
    taskTitle.setAttribute("contenteditable", "false");
    taskDescription.setAttribute("contenteditable", "false");
    taskType.setAttribute("contenteditable", "false");
